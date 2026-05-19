@@ -4,22 +4,22 @@ import React, { useState, useEffect, useCallback } from "react";
 
 // Use the images the user shared via the hitster-ai site
 const GALLERY_IMAGES = [
-  { src: "/image_opt (1).jpeg", alt: "Editorial styling" },
-  { src: "/image_opt (2).jpeg", alt: "Surreal photography" },
-  { src: "/image_opt (3).jpeg", alt: "Conceptual art" },
-  { src: "/image_opt (4).jpeg", alt: "Creative direction" },
-  { src: "/image_opt (5).jpeg", alt: "Surrealist composition" },
-  { src: "/image_opt (6).jpeg", alt: "Brand image" },
-  { src: "/image_opt (7).jpeg", alt: "Fashion campaign" },
-  { src: "/image_opt.jpeg", alt: "Photorealistic portrait" },
-  { src: "/ivan 004_opt.jpeg", alt: "Product visualization" },
-  { src: "/diana 003_opt.jpeg", alt: "Fashion portrait" },
-  { src: "/flesh-mafazine-2.jpg", alt: "Visual transformation" },
-  { src: "/Ivan Aguirre Portafolios 36_opt.jpeg", alt: "Landscape composition" },
-  { src: "/INSTAGRAM  MARIANA TREVIÑO3_opt.jpeg", alt: "Conceptual art" },
-  { src: "/CleanShot 2026-05-18 at 21_opt.jpeg", alt: "Brand image" },
-  { src: "/77461487238731_opt.jpeg", alt: "Surrealist composition" },
-  { src: "/WhatsApp Image 2026-05-18 at 15_opt.jpeg", alt: "Editorial fashion" },
+  { src: `${import.meta.env.BASE_URL}image_opt (1).jpeg`, alt: "Editorial styling" },
+  { src: `${import.meta.env.BASE_URL}image_opt (2).jpeg`, alt: "Surreal photography" },
+  { src: `${import.meta.env.BASE_URL}image_opt (3).jpeg`, alt: "Conceptual art" },
+  { src: `${import.meta.env.BASE_URL}image_opt (4).jpeg`, alt: "Creative direction" },
+  { src: `${import.meta.env.BASE_URL}image_opt (5).jpeg`, alt: "Surrealist composition" },
+  { src: `${import.meta.env.BASE_URL}image_opt (6).jpeg`, alt: "Brand image" },
+  { src: `${import.meta.env.BASE_URL}image_opt (7).jpeg`, alt: "Fashion campaign" },
+  { src: `${import.meta.env.BASE_URL}image_opt.jpeg`, alt: "Photorealistic portrait" },
+  { src: `${import.meta.env.BASE_URL}ivan 004_opt.jpeg`, alt: "Product visualization" },
+  { src: `${import.meta.env.BASE_URL}diana 003_opt.jpeg`, alt: "Fashion portrait" },
+  { src: `${import.meta.env.BASE_URL}flesh-mafazine-2.jpg`, alt: "Visual transformation" },
+  { src: `${import.meta.env.BASE_URL}Ivan Aguirre Portafolios 36_opt.jpeg`, alt: "Landscape composition" },
+  { src: `${import.meta.env.BASE_URL}INSTAGRAM  MARIANA TREVIÑO3_opt.jpeg`, alt: "Conceptual art" },
+  { src: `${import.meta.env.BASE_URL}CleanShot 2026-05-18 at 21_opt.jpeg`, alt: "Brand image" },
+  { src: `${import.meta.env.BASE_URL}77461487238731_opt.jpeg`, alt: "Surrealist composition" },
+  { src: `${import.meta.env.BASE_URL}WhatsApp Image 2026-05-18 at 15_opt.jpeg`, alt: "Editorial fashion" },
 ];
 
 export default function App() {
@@ -27,36 +27,6 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFormStatus('loading');
-    
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/baez@hitster.page", {
-        method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      
-      if (response.ok) {
-        setFormStatus('success');
-        (e.target as HTMLFormElement).reset();
-        setTimeout(() => setFormStatus('idle'), 5000);
-      } else {
-        setFormStatus('error');
-      }
-    } catch (error) {
-      setFormStatus('error');
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -285,40 +255,31 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            onSubmit={handleContactSubmit}
+            action="https://formsubmit.co/baez@hitster.page"
+            method="POST"
             className="flex flex-col gap-4 md:gap-6 w-full max-w-xl mx-auto text-left"
           >
+            <input type="hidden" name="_next" value="https://ferbaez.github.io/Ivan-Aguirre/" />
             <input type="hidden" name="_subject" value="Nuevo contacto desde el sitio web de Ivan Aguirre" />
             <input type="hidden" name="_captcha" value="false" />
             
             <div className="flex flex-col gap-3">
               <label htmlFor="name" className="text-[11px] uppercase tracking-[0.2em] text-white/50 font-bold ml-1">Nombre</label>
-              <input type="text" name="name" id="name" required disabled={formStatus === 'loading' || formStatus === 'success'} className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all font-light placeholder:text-white/20 disabled:opacity-50" placeholder="Tu nombre" />
+              <input type="text" name="name" id="name" required className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all font-light placeholder:text-white/20" placeholder="Tu nombre" />
             </div>
 
             <div className="flex flex-col gap-3">
               <label htmlFor="email" className="text-[11px] uppercase tracking-[0.2em] text-white/50 font-bold ml-1">Correo</label>
-              <input type="email" name="email" id="email" required disabled={formStatus === 'loading' || formStatus === 'success'} className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all font-light placeholder:text-white/20 disabled:opacity-50" placeholder="tu@correo.com" />
+              <input type="email" name="email" id="email" required className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all font-light placeholder:text-white/20" placeholder="tu@correo.com" />
             </div>
 
             <div className="flex flex-col gap-3">
               <label htmlFor="message" className="text-[11px] uppercase tracking-[0.2em] text-white/50 font-bold ml-1">Mensaje</label>
-              <textarea name="message" id="message" required disabled={formStatus === 'loading' || formStatus === 'success'} rows={5} className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all resize-none font-light placeholder:text-white/20 disabled:opacity-50" placeholder="¿De qué trata tu proyecto?" />
+              <textarea name="message" id="message" required rows={5} className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all resize-none font-light placeholder:text-white/20" placeholder="¿De qué trata tu proyecto?" />
             </div>
 
             <div className="mt-2 md:mt-4">
-              <AnimatePresence mode="wait">
-                {formStatus === 'success' ? (
-                  <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="w-full bg-green-500/10 border border-green-500/50 text-green-400 p-4 rounded-xl md:rounded-2xl text-center font-medium">¡Mensaje enviado con éxito! Te contactaremos pronto.</motion.div>
-                ) : formStatus === 'error' ? (
-                  <div key="error" className="flex flex-col gap-3">
-                    <div className="w-full bg-red-500/10 border border-red-500/50 text-red-400 p-4 rounded-xl md:rounded-2xl text-center font-medium">Hubo un error. Por favor intenta de nuevo.</div>
-                    <motion.button type="button" onClick={() => setFormStatus('idle')} className="w-full bg-white/10 text-white px-6 py-3 rounded-xl font-bold">Reintentar</motion.button>
-                  </div>
-                ) : (
-                  <motion.button key="submit" type="submit" disabled={formStatus === 'loading'} className="w-full bg-white text-black px-6 py-4 rounded-xl font-bold hover:bg-[#F27D26] hover:text-white transition-all shadow-xl disabled:opacity-50">{formStatus === 'loading' ? 'Enviando...' : 'Enviar mensaje'}</motion.button>
-                )}
-              </AnimatePresence>
+              <button type="submit" className="w-full bg-white text-black px-6 py-4 rounded-xl font-bold hover:bg-[#F27D26] hover:text-white transition-all shadow-xl">Enviar mensaje</button>
             </div>
           </motion.form>
         </div>
