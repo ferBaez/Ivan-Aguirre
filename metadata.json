@@ -1,0 +1,6 @@
+{
+  "name": "Ivan Aguirre Photography",
+  "description": "Portfolio for Ivan Aguirre, master of light, fashion, and surrealism in Mexico.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
