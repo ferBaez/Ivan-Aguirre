@@ -4,22 +4,22 @@ import React, { useState, useEffect, useCallback } from "react";
 
 // Use the images the user shared via the hitster-ai site
 const GALLERY_IMAGES = [
-  { src: "./image_opt (1).jpeg", alt: "Editorial styling" },
-  { src: "./image_opt (2).jpeg", alt: "Surreal photography" },
-  { src: "./image_opt (3).jpeg", alt: "Conceptual art" },
-  { src: "./image_opt (4).jpeg", alt: "Creative direction" },
-  { src: "./image_opt (5).jpeg", alt: "Surrealist composition" },
-  { src: "./image_opt (6).jpeg", alt: "Brand image" },
-  { src: "./image_opt (7).jpeg", alt: "Fashion campaign" },
-  { src: "./image_opt.jpeg", alt: "Photorealistic portrait" },
-  { src: "./ivan 004_opt.jpeg", alt: "Product visualization" },
-  { src: "./diana 003_opt.jpeg", alt: "Fashion portrait" },
-  { src: "./flesh-mafazine-2.jpg", alt: "Visual transformation" },
-  { src: "./Ivan Aguirre Portafolios 36_opt.jpeg", alt: "Landscape composition" },
-  { src: "./INSTAGRAM  MARIANA TREVIÑO3_opt.jpeg", alt: "Conceptual art" },
-  { src: "./CleanShot 2026-05-18 at 21_opt.jpeg", alt: "Brand image" },
-  { src: "./77461487238731_opt.jpeg", alt: "Surrealist composition" },
-  { src: "./WhatsApp Image 2026-05-18 at 15_opt.jpeg", alt: "Editorial fashion" },
+  { src: `${import.meta.env.BASE_URL}image_opt (1).jpeg`, alt: "Editorial styling" },
+  { src: `${import.meta.env.BASE_URL}image_opt (2).jpeg`, alt: "Surreal photography" },
+  { src: `${import.meta.env.BASE_URL}image_opt (3).jpeg`, alt: "Conceptual art" },
+  { src: `${import.meta.env.BASE_URL}image_opt (4).jpeg`, alt: "Creative direction" },
+  { src: `${import.meta.env.BASE_URL}image_opt (5).jpeg`, alt: "Surrealist composition" },
+  { src: `${import.meta.env.BASE_URL}image_opt (6).jpeg`, alt: "Brand image" },
+  { src: `${import.meta.env.BASE_URL}image_opt (7).jpeg`, alt: "Fashion campaign" },
+  { src: `${import.meta.env.BASE_URL}image_opt.jpeg`, alt: "Photorealistic portrait" },
+  { src: `${import.meta.env.BASE_URL}ivan 004_opt.jpeg`, alt: "Product visualization" },
+  { src: `${import.meta.env.BASE_URL}diana 003_opt.jpeg`, alt: "Fashion portrait" },
+  { src: `${import.meta.env.BASE_URL}flesh-mafazine-2.jpg`, alt: "Visual transformation" },
+  { src: `${import.meta.env.BASE_URL}Ivan Aguirre Portafolios 36_opt.jpeg`, alt: "Landscape composition" },
+  { src: `${import.meta.env.BASE_URL}INSTAGRAM  MARIANA TREVIÑO3_opt.jpeg`, alt: "Conceptual art" },
+  { src: `${import.meta.env.BASE_URL}CleanShot 2026-05-18 at 21_opt.jpeg`, alt: "Brand image" },
+  { src: `${import.meta.env.BASE_URL}77461487238731_opt.jpeg`, alt: "Surrealist composition" },
+  { src: `${import.meta.env.BASE_URL}WhatsApp Image 2026-05-18 at 15_opt.jpeg`, alt: "Editorial fashion" },
 ];
 
 export default function App() {
