@@ -186,7 +186,7 @@ export default function App() {
           </div>
 
           <div className="flex justify-center pt-8 md:pt-12">
-            <a href="#contact" className="group relative inline-flex items-center justify-center gap-4 border border-white/20 bg-white/5 hover:bg-[#F27D26] hover:border-[#F27D26] px-10 py-5 rounded-full transition-all duration-500 overflow-hidden">
+            <a href="https://drive.google.com/file/d/1Gm5iAnViubT_CLdTrUk2d2KM8txSUbDr/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-4 border border-white/20 bg-white/5 hover:bg-[#F27D26] hover:border-[#F27D26] px-10 py-5 rounded-full transition-all duration-500 overflow-hidden">
               <span className="relative z-10 text-xs md:text-sm uppercase tracking-[0.2em] font-bold text-white">Portafolios</span>
               <ArrowRight size={18} className="relative z-10 text-white group-hover:translate-x-1 transition-transform duration-300" />
             </a>
