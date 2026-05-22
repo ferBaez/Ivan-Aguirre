@@ -94,8 +94,12 @@ export default function App() {
             className="flex h-full min-w-max"
           >
             {[...GALLERY_IMAGES, ...GALLERY_IMAGES].map((img, i) => (
-              <div key={i} className="h-full w-[100vw] sm:w-[50vw] md:w-[33.333vw] lg:w-[25vw] flex-shrink-0 border-r border-white/5">
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover opacity-50 grayscale-[30%] brightness-75" />
+              <div key={i} className="h-full flex-shrink-0 border-r border-white/10 overflow-hidden">
+                <img 
+                  src={img.src} 
+                  alt={img.alt} 
+                  className="h-full w-auto opacity-60 grayscale-[10%] brightness-[0.85] transition-all duration-500 hover:opacity-95 hover:grayscale-0" 
+                />
               </div>
             ))}
           </motion.div>
